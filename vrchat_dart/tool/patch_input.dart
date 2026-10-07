@@ -48,29 +48,5 @@ Future<Map<String, dynamic>> getSpec({required bool local}) async {
   }
 
   // Make the map modifiable
-  final spec = jsonDecode(jsonEncode(yaml)) as Map<String, dynamic>;
-  // Instance user objects omit avatar image fields even though the spec
-  // marks them required. Keep them optional across regenerations.
-  _makeSchemaFieldsOptional(spec, 'LimitedUserInstance', const [
-    'currentAvatarImageUrl',
-    'currentAvatarTags',
-    'currentAvatarThumbnailImageUrl',
-  ]);
-  return spec;
-}
-
-void _makeSchemaFieldsOptional(
-  Map<String, dynamic> spec,
-  String schemaName,
-  List<String> fields,
-) {
-  final components = spec['components'];
-  if (components is! Map<String, dynamic>) return;
-  final schemas = components['schemas'];
-  if (schemas is! Map<String, dynamic>) return;
-  final schema = schemas[schemaName];
-  if (schema is! Map<String, dynamic>) return;
-  final required = schema['required'];
-  if (required is! List) return;
-  required.removeWhere((field) => fields.contains(field));
+  return jsonDecode(jsonEncode(yaml));
 }
