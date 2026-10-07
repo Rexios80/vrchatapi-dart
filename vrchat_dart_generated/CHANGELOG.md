@@ -1,3 +1,6 @@
+## 1.21.1
+- Makes `LimitedUserInstance` fields `currentAvatarImageUrl`, `currentAvatarTags`, and `currentAvatarThumbnailImageUrl` optional
+
 ## 1.21.0
 - Updated to match spec
 

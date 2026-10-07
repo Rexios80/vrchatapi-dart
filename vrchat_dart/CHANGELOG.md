@@ -1,3 +1,7 @@
+## 4.0.6
+
+- Makes `LimitedUserInstance` fields `currentAvatarImageUrl`, `currentAvatarTags`, and `currentAvatarThumbnailImageUrl` optional
+
 ## 4.0.5
 
 - Makes `StreamedCurrentUser` fields `bio`, `fallbackAvatar`, and `username` optional
